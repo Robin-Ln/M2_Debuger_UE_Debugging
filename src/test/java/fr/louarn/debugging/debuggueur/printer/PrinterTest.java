@@ -6,10 +6,12 @@ import fr.louarn.debugging.debuggueur.trace.Level;
 import fr.louarn.debugging.debuggueur.trace.Trace;
 import fr.louarn.debugging.debuggueur.trace.Value;
 import fr.louarn.debugging.debuggueur.utils.Constants;
+import fr.louarn.debugging.debuggueur.utils.MethodesUtils;
 import fr.louarn.debugging.debuggueur.utils.PropertiesUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.PrintStream;
 import java.util.Calendar;
 import java.util.Properties;
 
@@ -35,10 +37,17 @@ class PrinterTest {
     }
 
     @Test
-    void test() {
+    void consoleTest() {
         IDebuggerVisitor visitor = new Printer(System.out, this.level);
         this.programTrace.accept(visitor);
+    }
 
+    @Test
+    void fileTest() {
+        PrintStream out = MethodesUtils.createPrintStream(Constants.PATH_TRACE_SAVE);
+        IDebuggerVisitor visitor = new Printer(out, this.level);
+        this.programTrace.accept(visitor);
+        out.close();
     }
 
 }

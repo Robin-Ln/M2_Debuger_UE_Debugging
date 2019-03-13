@@ -12,6 +12,8 @@ public class Constants {
 
     static final public String PATH_PROPERTIES = "src/main/resources/debug.properties";
 
+    static final public String PATH_TRACE_SAVE = "src/main/resources/traces.txt";
+
     static final public String CONF_NAME_PROPERTIES = "debug.properties";
 
     static final public String CONF_KEY_LEVEL = "level";

@@ -2,13 +2,13 @@ package fr.louarn.debugging.debuggueur.utils;
 
 import java.io.*;
 
-public class SerializableUtils {
+public class MethodesUtils {
 
     /**
      * Constructeur
      */
 
-    private SerializableUtils() {
+    private MethodesUtils() {
         super();
     }
 
@@ -29,7 +29,7 @@ public class SerializableUtils {
 
             // fermeture du flux dans le bloc finally
         } catch (IOException e) {
-            System.err.println("fail SerializableUtils.writeObject()");
+            System.err.println("fail MethodesUtils.writeObject()");
             e.printStackTrace();
         } finally {
             if (oos != null) {
@@ -53,7 +53,7 @@ public class SerializableUtils {
 
             return ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println("fail SerializableUtils.readObject()");
+            System.err.println("fail MethodesUtils.readObject()");
             e.printStackTrace();
         } finally {
             if (ois != null) {
@@ -63,6 +63,16 @@ public class SerializableUtils {
                     e.printStackTrace();
                 }
             }
+        }
+        return null;
+    }
+
+    static public PrintStream createPrintStream(String path) {
+        try {
+            return new PrintStream(new FileOutputStream(path));
+        } catch (IOException e) {
+            System.err.println("fail MethodesUtils.createPrintStream()");
+            e.printStackTrace();
         }
         return null;
     }

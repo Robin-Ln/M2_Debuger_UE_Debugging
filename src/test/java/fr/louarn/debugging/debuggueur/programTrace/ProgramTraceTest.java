@@ -5,7 +5,7 @@ import fr.louarn.debugging.debuggueur.trace.Level;
 import fr.louarn.debugging.debuggueur.trace.Trace;
 import fr.louarn.debugging.debuggueur.trace.Value;
 import fr.louarn.debugging.debuggueur.utils.Constants;
-import fr.louarn.debugging.debuggueur.utils.SerializableUtils;
+import fr.louarn.debugging.debuggueur.utils.MethodesUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -61,12 +61,12 @@ class ProgramTraceTest {
 
     @Test
     void saveTest(){
-        SerializableUtils.writeObject(this.programTrace, Constants.PATH_FILE_SAVE);
+        MethodesUtils.writeObject(this.programTrace, Constants.PATH_FILE_SAVE);
     }
 
     @Test
     void readTest(){
-        ProgramTrace programTrace = (ProgramTrace) SerializableUtils.readObject(Constants.PATH_FILE_SAVE);
+        ProgramTrace programTrace = (ProgramTrace) MethodesUtils.readObject(Constants.PATH_FILE_SAVE);
     }
 
 }
