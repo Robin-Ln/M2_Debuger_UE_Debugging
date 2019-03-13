@@ -1,5 +1,7 @@
 package fr.louarn.debugging.debuggueur.utils;
 
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,6 +14,12 @@ import java.util.Properties;
  *
  */
 public class PropertiesUtils {
+
+    /**
+     * Attribute
+     */
+    final static Logger logger = Logger.getLogger(MethodesUtils.class);
+
     /**
      * Chargement des propriétés de configuration de l'application (depuis un
      * éventuel fichier de configuration).
@@ -26,14 +34,13 @@ public class PropertiesUtils {
                 in = new FileInputStream(configurationFilePath);
                 properties.load(in);
             } catch (Throwable t) {
-                System.out.println("Impossible de charger les configurations");
-                t.printStackTrace();
+                MethodesUtils.logger.error("Impossible de charger les configurations", t);
             } finally {
                 if (in != null) {
                     try {
                         in.close();
                     } catch (IOException e) {
-                        System.err.println("Erreur lors de la fermeture du flux sur le fichier de configuration");
+                        MethodesUtils.logger.error("Erreur lors de la fermeture du flux sur le fichier de configuration", e);
                     }
                 }
             }
@@ -55,14 +62,13 @@ public class PropertiesUtils {
                 out = new FileOutputStream(configurationFilePath);
                 properties.store(out, "Configuration de l'application");
             } catch (Throwable t) {
-                System.err.println("Impossible d'enregistrer les configurations");
-                t.printStackTrace();
+                MethodesUtils.logger.error("Impossible d'enregistrer les configurations", t);
             } finally {
                 if (out != null) {
                     try {
                         out.close();
                     } catch (Throwable e) {
-                        System.err.println("Erreur lors de la fermeture du flux sur le fichier de configuration");
+                        MethodesUtils.logger.error("Erreur lors de la fermeture du flux sur le fichier de configuration", e);
                     }
                 }
             }

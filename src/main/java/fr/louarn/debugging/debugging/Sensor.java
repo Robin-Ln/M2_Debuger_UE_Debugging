@@ -50,7 +50,7 @@ public class Sensor {
     }
 
     public float computeValue() {
-        return getRawValue() / 100;
+        return getRawValue() / 100.0f;
     }
 
 

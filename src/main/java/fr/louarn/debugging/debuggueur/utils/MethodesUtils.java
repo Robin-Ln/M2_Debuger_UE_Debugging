@@ -1,8 +1,16 @@
 package fr.louarn.debugging.debuggueur.utils;
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 
 public class MethodesUtils {
+
+    /**
+     * Attribute
+     */
+    final static Logger logger = Logger.getLogger(MethodesUtils.class);
+
 
     /**
      * Constructeur
@@ -29,14 +37,13 @@ public class MethodesUtils {
 
             // fermeture du flux dans le bloc finally
         } catch (IOException e) {
-            System.err.println("fail MethodesUtils.writeObject()");
-            e.printStackTrace();
+            MethodesUtils.logger.error("fail MethodesUtils.writeObject()",e);
         } finally {
             if (oos != null) {
                 try {
                     oos.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    MethodesUtils.logger.error("fail oos.close()",e);
                 }
             }
         }
@@ -53,14 +60,13 @@ public class MethodesUtils {
 
             return ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println("fail MethodesUtils.readObject()");
-            e.printStackTrace();
+            MethodesUtils.logger.error("fail MethodesUtils.readObject()",e);
         } finally {
             if (ois != null) {
                 try {
                     ois.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    MethodesUtils.logger.error("fail ois.close()",e);
                 }
             }
         }
@@ -71,8 +77,7 @@ public class MethodesUtils {
         try {
             return new PrintStream(new FileOutputStream(path));
         } catch (IOException e) {
-            System.err.println("fail MethodesUtils.createPrintStream()");
-            e.printStackTrace();
+            MethodesUtils.logger.error("fail MethodesUtils.createPrintStream()",e);
         }
         return null;
     }
