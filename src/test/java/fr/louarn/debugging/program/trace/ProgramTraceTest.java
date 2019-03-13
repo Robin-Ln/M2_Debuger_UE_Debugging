@@ -17,15 +17,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ProgramTraceTest {
 
-    private ProgramTrace programTrace;
+    private IProgramTrace programTrace;
 
     @BeforeEach
     void init() {
-        this.programTrace = new ProgramTrace();
+        this.programTrace = ProgramTrace.getInstance();
         //String methodeName = this.getClass().getEnclosingMethod().getName();
-        this.programTrace.add(new Trace(Calendar.getInstance(), Level.FAIBLE, "test", new Value(1)));
-        this.programTrace.add(new Trace(Calendar.getInstance(), Level.FAIBLE, "test", new Value("test")));
-        this.programTrace.add(new Trace(Calendar.getInstance(), Level.FAIBLE, "test", new Value(1.3)));
+        this.programTrace.addTrace(Level.FAIBLE, "test", new Value(1));
+        this.programTrace.addTrace(Level.FAIBLE, "test", new Value("test"));
+        this.programTrace.addTrace(Level.FAIBLE, "test", new Value(1.3));
 
     }
 
@@ -35,7 +35,7 @@ class ProgramTraceTest {
         Assertions.assertEquals(this.programTrace.get(0).getValue(), new Value(1));
         Assertions.assertEquals(this.programTrace.get(1).getValue(), new Value("test"));
         Assertions.assertEquals(this.programTrace.get(2).getValue(), new Value(1.3));
-        this.programTrace.add(new Trace(Calendar.getInstance(), Level.FAIBLE, "test", new Value("new")));
+        this.programTrace.addTrace(Level.FAIBLE, "test", new Value("new"));
         assertEquals(this.programTrace.size(), 4);
         Assertions.assertEquals(this.programTrace.get(3).getValue(), new Value("new"));
     }

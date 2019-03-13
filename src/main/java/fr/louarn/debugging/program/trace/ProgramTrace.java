@@ -1,25 +1,30 @@
 package fr.louarn.debugging.program.trace;
 
 import fr.louarn.debugging.printer.IDebuggerVisitor;
+import fr.louarn.debugging.trace.Level;
 import fr.louarn.debugging.trace.Trace;
+import fr.louarn.debugging.trace.Value;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.Objects;
 
-public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace, Serializable {
+public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace {
 
     /**
      * Attribute
      */
     private static final long serialVersionUID = 1L;
 
+    private static IProgramTrace programTrace;
+
     private Integer index;
 
     /**
      * Constructeur
      */
-    public ProgramTrace() {
+    private ProgramTrace() {
         this.index = 0;
     }
 
@@ -35,6 +40,13 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace, Se
     /**
      * Methode de l'interface IProgramTrace
      */
+    public static IProgramTrace getInstance() {
+        if (ProgramTrace.programTrace == null) {
+            ProgramTrace.programTrace = new ProgramTrace();
+        }
+        return ProgramTrace.programTrace;
+    }
+
     @Override
     public Trace next() {
         if (this.hasNext()) {
@@ -51,6 +63,15 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace, Se
         throw new IndexOutOfBoundsException("fail : ProgramTrace previous()");
     }
 
+    @Override
+    public void addTrace(Level level, String origine, Value value) {
+        this.add(new Trace(Calendar.getInstance(), level, origine, value));
+    }
+
+    @Override
+    public void addTrace(Level level, String origine) {
+        this.add(new Trace(Calendar.getInstance(), level, origine));
+    }
 
     @Override
     public Boolean hasNext() {

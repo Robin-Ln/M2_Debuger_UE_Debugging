@@ -6,6 +6,22 @@ public class Sensor {
     private int rawValue;
     private Channel channel;
 
+
+    public void addToChannel(int channelIndex) {
+        Channel chan = new Channel();
+        chan.setIndex(channelIndex);
+        this.setChannel(chan);
+    }
+
+    public void read() {
+        setRawValue(getChannel().read());
+        setValue(computeValue());
+    }
+
+    public float computeValue() {
+        return getRawValue() / 100.0f;
+    }
+
     public String getName() {
         return name;
     }
@@ -37,21 +53,5 @@ public class Sensor {
     public void setChannel(Channel channel) {
         this.channel = channel;
     }
-
-    public void addToChannel(int channelIndex) {
-        Channel chan = new Channel();
-        chan.setIndex(channelIndex);
-        this.setChannel(chan);
-    }
-
-    public void read() {
-        setRawValue(getChannel().read());
-        setValue(computeValue());
-    }
-
-    public float computeValue() {
-        return getRawValue() / 100.0f;
-    }
-
 
 }

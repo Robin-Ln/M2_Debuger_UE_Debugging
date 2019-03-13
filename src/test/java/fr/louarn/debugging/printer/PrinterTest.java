@@ -1,6 +1,7 @@
 package fr.louarn.debugging.printer;
 
 
+import fr.louarn.debugging.program.trace.IProgramTrace;
 import fr.louarn.debugging.program.trace.ProgramTrace;
 import fr.louarn.debugging.trace.Level;
 import fr.louarn.debugging.trace.Trace;
@@ -18,15 +19,15 @@ import java.util.Properties;
 
 class PrinterTest {
 
-    private ProgramTrace programTrace;
+    private IProgramTrace programTrace;
     private Level level;
 
     @BeforeEach
     void init() {
-        this.programTrace = new ProgramTrace();
-        this.programTrace.add(new Trace(Calendar.getInstance(), Level.FAIBLE, "test", new Value(1)));
-        this.programTrace.add(new Trace(Calendar.getInstance(), Level.MOYEN, "test", new Value("test")));
-        this.programTrace.add(new Trace(Calendar.getInstance(), Level.CRITIQUE, "test", new Value(1.3)));
+        this.programTrace = ProgramTrace.getInstance();
+        this.programTrace.addTrace(Level.FAIBLE, "test", new Value(1));
+        this.programTrace.addTrace(Level.MOYEN, "test", new Value("test"));
+        this.programTrace.addTrace(Level.CRITIQUE, "test", new Value(1.3));
 
         Properties properties = PropertiesUtils.loadProperties(Constants.PATH_PROPERTIES);
 

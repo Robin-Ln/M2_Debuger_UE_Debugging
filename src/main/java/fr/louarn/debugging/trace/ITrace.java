@@ -2,9 +2,10 @@ package fr.louarn.debugging.trace;
 
 import fr.louarn.debugging.printer.IDebuggerVisitable;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public interface ITrace extends IDebuggerVisitable {
+public interface ITrace extends IDebuggerVisitable, Serializable {
 
     void save(Value value);
 

@@ -5,7 +5,7 @@ import fr.louarn.debugging.printer.IDebuggerVisitor;
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class Trace implements ITrace, Serializable {
+public class Trace implements ITrace {
 
     /**
      * Attributs
@@ -32,6 +32,12 @@ public class Trace implements ITrace, Serializable {
         this.level = level;
         this.origine = origine;
         this.value = value;
+    }
+
+    public Trace(Calendar calendar, Level level, String origine) {
+        this.calendar = calendar;
+        this.level = level;
+        this.origine = origine;
     }
 
     /**
