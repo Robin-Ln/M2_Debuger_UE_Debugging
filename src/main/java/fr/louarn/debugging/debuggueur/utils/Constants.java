@@ -8,15 +8,15 @@ public class Constants {
     private Constants() {
     }
 
-    static final public String PATH_FILE_SAVE = "src/main/resources/programTrace.ser";
+    public static final String PATH_FILE_SAVE = "src/main/resources/programTrace.ser";
 
-    static final public String PATH_PROPERTIES = "src/main/resources/debug.properties";
+    public static final String PATH_PROPERTIES = "src/main/resources/debug.properties";
 
-    static final public String PATH_TRACE_SAVE = "src/main/resources/traces.txt";
+    public static final String PATH_TRACE_SAVE = "src/main/resources/traces.txt";
 
-    static final public String CONF_NAME_PROPERTIES = "debug.properties";
+    public static final String CONF_NAME_PROPERTIES = "debug.properties";
 
-    static final public String CONF_KEY_LEVEL = "level";
+    public static final String CONF_KEY_LEVEL = "level";
 
-    static final public String DATE_PATTERN ="dd/MM/yyyy";
+    public static final String DATE_PATTERN = "dd/MM/yyyy";
 }

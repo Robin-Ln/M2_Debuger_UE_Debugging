@@ -10,6 +10,7 @@ public class Trace implements ITrace, Serializable {
     /**
      * Attributs
      */
+    private static final long serialVersionUID = 3L;
 
     private Calendar calendar;
 

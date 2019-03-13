@@ -1,4 +1,4 @@
-package fr.louarn.debugging.debuggueur.programTrace;
+package fr.louarn.debugging.debuggueur.program.trace;
 
 import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitable;
 import fr.louarn.debugging.debuggueur.trace.Trace;

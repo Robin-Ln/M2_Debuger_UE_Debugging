@@ -18,7 +18,13 @@ public class PropertiesUtils {
     /**
      * Attribute
      */
-    final static Logger logger = Logger.getLogger(MethodesUtils.class);
+    static final Logger logger = Logger.getLogger(MethodesUtils.class);
+
+    /**
+     * constructeur
+     */
+    private PropertiesUtils() {
+    }
 
     /**
      * Chargement des propriétés de configuration de l'application (depuis un
@@ -33,8 +39,8 @@ public class PropertiesUtils {
             try {
                 in = new FileInputStream(configurationFilePath);
                 properties.load(in);
-            } catch (Throwable t) {
-                MethodesUtils.logger.error("Impossible de charger les configurations", t);
+            } catch (IOException e) {
+                MethodesUtils.logger.error("Impossible de charger les configurations", e);
             } finally {
                 if (in != null) {
                     try {
@@ -61,13 +67,13 @@ public class PropertiesUtils {
             try {
                 out = new FileOutputStream(configurationFilePath);
                 properties.store(out, "Configuration de l'application");
-            } catch (Throwable t) {
-                MethodesUtils.logger.error("Impossible d'enregistrer les configurations", t);
+            } catch (IOException e) {
+                MethodesUtils.logger.error("Impossible d'enregistrer les configurations", e);
             } finally {
                 if (out != null) {
                     try {
                         out.close();
-                    } catch (Throwable e) {
+                    } catch (IOException e) {
                         MethodesUtils.logger.error("Erreur lors de la fermeture du flux sur le fichier de configuration", e);
                     }
                 }

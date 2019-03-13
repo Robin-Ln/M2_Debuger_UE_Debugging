@@ -1,7 +1,7 @@
 package fr.louarn.debugging.debuggueur.printer;
 
 
-import fr.louarn.debugging.debuggueur.programTrace.ProgramTrace;
+import fr.louarn.debugging.debuggueur.program.trace.ProgramTrace;
 import fr.louarn.debugging.debuggueur.trace.Level;
 import fr.louarn.debugging.debuggueur.trace.Trace;
 import fr.louarn.debugging.debuggueur.trace.Value;

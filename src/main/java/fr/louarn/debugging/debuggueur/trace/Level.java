@@ -16,14 +16,15 @@ public enum Level implements IDebuggerVisitable {
     /**
      * Attributs
      */
+    private static final long serialVersionUID = 2L;
 
-    private Integer level;
+    private Integer value;
 
     /**
      * Constructeurs
      */
-    Level(Integer level) {
-        this.level = level;
+    Level(Integer value) {
+        this.value = value;
     }
 
     /**
@@ -39,7 +40,7 @@ public enum Level implements IDebuggerVisitable {
     /**
      * Acccesseurs
      */
-    public Integer getLevel() {
-        return level;
+    public Integer getValue() {
+        return value;
     }
 }

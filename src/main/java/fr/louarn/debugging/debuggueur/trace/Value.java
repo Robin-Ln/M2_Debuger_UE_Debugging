@@ -11,6 +11,8 @@ public class Value implements IDebuggerVisitable, Serializable {
     /**
      * Attributs
      */
+    private static final long serialVersionUID = 4L;
+
     private Object value;
 
     /**

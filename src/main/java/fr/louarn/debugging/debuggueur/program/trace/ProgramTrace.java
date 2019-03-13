@@ -1,16 +1,19 @@
-package fr.louarn.debugging.debuggueur.programTrace;
+package fr.louarn.debugging.debuggueur.program.trace;
 
 import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitor;
 import fr.louarn.debugging.debuggueur.trace.Trace;
 
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace, Serializable {
 
     /**
      * Attribute
      */
+    private static final long serialVersionUID = 1L;
+
     private Integer index;
 
     /**
@@ -37,7 +40,7 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace, Se
         if (this.hasNext()) {
             return this.get(this.index++);
         }
-        throw new RuntimeException("RuntimeException : ProgramTrace next()");
+        throw new IndexOutOfBoundsException("fail : ProgramTrace next()");
     }
 
     @Override
@@ -45,8 +48,9 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace, Se
         if (this.hasPrevious()) {
             return this.get(--this.index);
         }
-        throw new RuntimeException("RuntimeException : ProgramTrace previous()");
+        throw new IndexOutOfBoundsException("fail : ProgramTrace previous()");
     }
+
 
     @Override
     public Boolean hasNext() {
@@ -56,5 +60,22 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace, Se
     @Override
     public Boolean hasPrevious() {
         return this.index - 1 >= 0;
+    }
+
+    /**
+     * Autre methodes
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ProgramTrace traces = (ProgramTrace) o;
+        return index.equals(traces.index);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), index);
     }
 }

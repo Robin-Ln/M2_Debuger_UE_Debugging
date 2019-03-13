@@ -1,6 +1,6 @@
 package fr.louarn.debugging.debuggueur.printer;
 
-import fr.louarn.debugging.debuggueur.programTrace.IProgramTrace;
+import fr.louarn.debugging.debuggueur.program.trace.IProgramTrace;
 import fr.louarn.debugging.debuggueur.trace.ITrace;
 import fr.louarn.debugging.debuggueur.trace.Level;
 import fr.louarn.debugging.debuggueur.trace.Value;
@@ -37,7 +37,7 @@ public class Printer implements IDebuggerVisitor {
 
     @Override
     public void visite(ITrace trace) {
-        if (this.level.getLevel() <= trace.getLevel().getLevel()) {
+        if (this.level.getValue() <= trace.getLevel().getValue()) {
             this.out.print("[ date: ");
 
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_PATTERN);
@@ -61,7 +61,7 @@ public class Printer implements IDebuggerVisitor {
 
     @Override
     public void visite(Level level) {
-        this.out.print(level.getLevel());
+        this.out.print(level.getValue());
     }
 
     @Override

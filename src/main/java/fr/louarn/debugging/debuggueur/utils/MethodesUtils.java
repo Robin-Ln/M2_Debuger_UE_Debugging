@@ -9,7 +9,7 @@ public class MethodesUtils {
     /**
      * Attribute
      */
-    final static Logger logger = Logger.getLogger(MethodesUtils.class);
+    static final Logger logger = Logger.getLogger(MethodesUtils.class);
 
 
     /**
@@ -23,7 +23,7 @@ public class MethodesUtils {
     /**
      * Methodes
      */
-    static public void writeObject(Serializable serializable, String path) {
+    public static void writeObject(Serializable serializable, String path) {
         ObjectOutputStream oos = null;
         try {
             // on simplifie le code en retirant la gestion des exceptions
@@ -49,7 +49,7 @@ public class MethodesUtils {
         }
     }
 
-    static public Object readObject(String path) {
+    public static Object readObject(String path) {
         ObjectInputStream ois = null;
         try {
             // on simplifie le code en retirant la gestion des exceptions
@@ -73,7 +73,7 @@ public class MethodesUtils {
         return null;
     }
 
-    static public PrintStream createPrintStream(String path) {
+    public static PrintStream createPrintStream(String path) {
         try {
             return new PrintStream(new FileOutputStream(path));
         } catch (IOException e) {

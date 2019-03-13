@@ -1,9 +1,16 @@
 package fr.louarn.debugging.debugging;
 
+import org.apache.log4j.Logger;
+
 import java.util.Map;
 
 
 public class Run {
+
+    /**
+     * Attribute
+     */
+    static final Logger logger = Logger.getLogger(Run.class);
 
     public static void main(String[] args) {
         SensorsSystem system = new SensorsSystem();
@@ -11,8 +18,8 @@ public class Run {
         for (int i = 1; i < 10; i++) {
             Map<String, Float> results;
             results = system.performSensorSweep();
-            System.out.println("===============================");
-            results.forEach((sensorName, sensorValue) -> System.out.println(sensorName + ": " + sensorValue) );
+            logger.trace("===============================");
+            results.forEach((sensorName, sensorValue) -> logger.trace(sensorName + ": " + sensorValue));
         }
 
     }
