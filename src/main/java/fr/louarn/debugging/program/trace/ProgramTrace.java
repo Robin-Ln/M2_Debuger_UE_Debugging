@@ -5,7 +5,6 @@ import fr.louarn.debugging.trace.Level;
 import fr.louarn.debugging.trace.Trace;
 import fr.louarn.debugging.trace.Value;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.Objects;
@@ -17,7 +16,7 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace {
      */
     private static final long serialVersionUID = 1L;
 
-    private static IProgramTrace programTrace;
+    private static IProgramTrace instance;
 
     private Integer index;
 
@@ -41,10 +40,10 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace {
      * Methode de l'interface IProgramTrace
      */
     public static IProgramTrace getInstance() {
-        if (ProgramTrace.programTrace == null) {
-            ProgramTrace.programTrace = new ProgramTrace();
+        if (ProgramTrace.instance == null) {
+            ProgramTrace.instance = new ProgramTrace();
         }
-        return ProgramTrace.programTrace;
+        return ProgramTrace.instance;
     }
 
     @Override

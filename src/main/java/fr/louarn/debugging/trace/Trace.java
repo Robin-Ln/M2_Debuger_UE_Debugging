@@ -2,7 +2,6 @@ package fr.louarn.debugging.trace;
 
 import fr.louarn.debugging.printer.IDebuggerVisitor;
 
-import java.io.Serializable;
 import java.util.Calendar;
 
 public class Trace implements ITrace {
