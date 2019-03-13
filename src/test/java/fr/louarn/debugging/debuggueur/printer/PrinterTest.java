@@ -1,12 +1,12 @@
-package debuggueur.printer;
+package fr.louarn.debugging.debuggueur.printer;
 
 
-import debuggueur.programTrace.ProgramTrace;
-import debuggueur.trace.Level;
-import debuggueur.trace.Trace;
-import debuggueur.trace.Value;
-import debuggueur.utils.Constants;
-import debuggueur.utils.PropertiesUtils;
+import fr.louarn.debugging.debuggueur.programTrace.ProgramTrace;
+import fr.louarn.debugging.debuggueur.trace.Level;
+import fr.louarn.debugging.debuggueur.trace.Trace;
+import fr.louarn.debugging.debuggueur.trace.Value;
+import fr.louarn.debugging.debuggueur.utils.Constants;
+import fr.louarn.debugging.debuggueur.utils.PropertiesUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,7 @@
-package debuggueur.programTrace;
+package fr.louarn.debugging.debuggueur.programTrace;
 
-import debuggueur.printer.IDebuggerVisitor;
-import debuggueur.trace.Trace;
+import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitor;
+import fr.louarn.debugging.debuggueur.trace.Trace;
 
 import java.io.Serializable;
 import java.util.LinkedList;

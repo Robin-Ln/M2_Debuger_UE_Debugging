@@ -1,4 +1,4 @@
-package debugging;
+package fr.louarn.debugging.debugging;
 
 import java.util.Random;
 

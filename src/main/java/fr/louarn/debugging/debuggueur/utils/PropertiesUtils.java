@@ -1,4 +1,4 @@
-package debuggueur.utils;
+package fr.louarn.debugging.debuggueur.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

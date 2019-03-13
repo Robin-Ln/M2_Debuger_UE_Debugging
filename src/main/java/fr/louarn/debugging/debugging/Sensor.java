@@ -1,4 +1,4 @@
-package debugging;
+package fr.louarn.debugging.debugging;
 
 public class Sensor {
     private String name;

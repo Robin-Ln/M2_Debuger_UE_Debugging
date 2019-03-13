@@ -1,11 +1,11 @@
-package debuggueur.programTrace;
+package fr.louarn.debugging.debuggueur.programTrace;
 
 
-import debuggueur.trace.Level;
-import debuggueur.trace.Trace;
-import debuggueur.trace.Value;
-import debuggueur.utils.Constants;
-import debuggueur.utils.SerializableUtils;
+import fr.louarn.debugging.debuggueur.trace.Level;
+import fr.louarn.debugging.debuggueur.trace.Trace;
+import fr.louarn.debugging.debuggueur.trace.Value;
+import fr.louarn.debugging.debuggueur.utils.Constants;
+import fr.louarn.debugging.debuggueur.utils.SerializableUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

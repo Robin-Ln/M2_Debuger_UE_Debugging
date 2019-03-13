@@ -1,7 +1,7 @@
-package debuggueur.trace;
+package fr.louarn.debugging.debuggueur.trace;
 
-import debuggueur.printer.IDebuggerVisitable;
-import debuggueur.printer.IDebuggerVisitor;
+import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitable;
+import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitor;
 
 public enum Level implements IDebuggerVisitable {
     /**
