@@ -19,7 +19,7 @@ class SensorsSystemTest {
     @BeforeEach
     void init (){
         this.sensorsSystem = new SensorsSystem();
-        this.visitor = new Printer(System.out, Level.FAIBLE);
+        this.visitor = new Printer(System.out, Level.MOYEN);
     }
 
     @Test

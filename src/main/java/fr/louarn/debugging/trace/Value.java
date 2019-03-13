@@ -22,7 +22,7 @@ public class Value implements IDebuggerVisitable, Serializable {
         this.value = value;
     }
 
-    public Value(Double value) {
+    public Value(Float value) {
         this.value = value;
     }
 

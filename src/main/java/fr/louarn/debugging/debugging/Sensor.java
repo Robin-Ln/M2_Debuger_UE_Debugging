@@ -1,6 +1,14 @@
 package fr.louarn.debugging.debugging;
 
+import fr.louarn.debugging.program.trace.IProgramTrace;
+import fr.louarn.debugging.program.trace.ProgramTrace;
+import fr.louarn.debugging.trace.Level;
+
 public class Sensor {
+
+    public static final IProgramTrace PROGRAM_TRACE = ProgramTrace.getInstance();
+
+
     private String name;
     private float value;
     private int rawValue;
@@ -16,6 +24,8 @@ public class Sensor {
     public void read() {
         setRawValue(getChannel().read());
         setValue(computeValue());
+        Sensor.PROGRAM_TRACE.addTrace(Level.MOYEN,"read(), rawValue : ",this.rawValue);
+        Sensor.PROGRAM_TRACE.addTrace(Level.MOYEN,"read(), value : ",this.value);
     }
 
     public float computeValue() {

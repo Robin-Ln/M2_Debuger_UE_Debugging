@@ -64,8 +64,18 @@ public class ProgramTrace extends LinkedList<Trace> implements IProgramTrace {
     }
 
     @Override
-    public void addTrace(Level level, String origine, Value value) {
-        this.add(new Trace(Calendar.getInstance(), level, origine, value));
+    public void addTrace(Level level, String origine, String value) {
+        this.add(new Trace(Calendar.getInstance(), level, origine, new Value(value)));
+    }
+
+    @Override
+    public void addTrace(Level level, String origine, Integer value) {
+        this.add(new Trace(Calendar.getInstance(), level, origine, new Value(value)));
+    }
+
+    @Override
+    public void addTrace(Level level, String origine, Float value) {
+        this.add(new Trace(Calendar.getInstance(), level, origine, new Value(value)));
     }
 
     @Override

@@ -38,6 +38,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/fr/louarn/debugging/trace/Value.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/test/java/fr/louarn/debugging/debugging/SensorsSystemTest.java">
           <value>
             <set />

@@ -22,10 +22,11 @@ class ProgramTraceTest {
     @BeforeEach
     void init() {
         this.programTrace = ProgramTrace.getInstance();
+        this.programTrace.clear();
         //String methodeName = this.getClass().getEnclosingMethod().getName();
-        this.programTrace.addTrace(Level.FAIBLE, "test", new Value(1));
-        this.programTrace.addTrace(Level.FAIBLE, "test", new Value("test"));
-        this.programTrace.addTrace(Level.FAIBLE, "test", new Value(1.3));
+        this.programTrace.addTrace(Level.FAIBLE, "test", 1);
+        this.programTrace.addTrace(Level.FAIBLE, "test", "test");
+        this.programTrace.addTrace(Level.FAIBLE, "test", 1.3f);
 
     }
 
@@ -34,8 +35,8 @@ class ProgramTraceTest {
         assertEquals(this.programTrace.size(), 3);
         Assertions.assertEquals(this.programTrace.get(0).getValue(), new Value(1));
         Assertions.assertEquals(this.programTrace.get(1).getValue(), new Value("test"));
-        Assertions.assertEquals(this.programTrace.get(2).getValue(), new Value(1.3));
-        this.programTrace.addTrace(Level.FAIBLE, "test", new Value("new"));
+        Assertions.assertEquals(this.programTrace.get(2).getValue(), new Value(1.3f));
+        this.programTrace.addTrace(Level.FAIBLE, "test","new");
         assertEquals(this.programTrace.size(), 4);
         Assertions.assertEquals(this.programTrace.get(3).getValue(), new Value("new"));
     }
@@ -44,7 +45,7 @@ class ProgramTraceTest {
     void nextTest() {
         Assertions.assertEquals(this.programTrace.next().getValue(), new Value(1));
         Assertions.assertEquals(this.programTrace.next().getValue(), new Value("test"));
-        Assertions.assertEquals(this.programTrace.next().getValue(), new Value(1.3));
+        Assertions.assertEquals(this.programTrace.next().getValue(), new Value(1.3f));
         assertThrows(RuntimeException.class, () -> this.programTrace.next());
     }
 
@@ -52,9 +53,9 @@ class ProgramTraceTest {
     void revertTest() {
         Assertions.assertEquals(this.programTrace.next().getValue(), new Value(1));
         Assertions.assertEquals(this.programTrace.next().getValue(), new Value("test"));
-        Assertions.assertEquals(this.programTrace.next().getValue(), new Value(1.3));
+        Assertions.assertEquals(this.programTrace.next().getValue(), new Value(1.3f));
         assertThrows(RuntimeException.class, () -> this.programTrace.next());
-        Assertions.assertEquals(this.programTrace.previous().getValue(), new Value(1.3));
+        Assertions.assertEquals(this.programTrace.previous().getValue(), new Value(1.3f));
         Assertions.assertEquals(this.programTrace.previous().getValue(), new Value("test"));
         Assertions.assertEquals(this.programTrace.previous().getValue(), new Value(1));
         assertThrows(RuntimeException.class, () -> this.programTrace.previous());
