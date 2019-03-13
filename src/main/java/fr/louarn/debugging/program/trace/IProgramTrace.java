@@ -1,7 +1,7 @@
-package fr.louarn.debugging.debuggueur.program.trace;
+package fr.louarn.debugging.program.trace;
 
-import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitable;
-import fr.louarn.debugging.debuggueur.trace.Trace;
+import fr.louarn.debugging.printer.IDebuggerVisitable;
+import fr.louarn.debugging.trace.Trace;
 
 public interface IProgramTrace extends IDebuggerVisitable, Iterable<Trace> {
 

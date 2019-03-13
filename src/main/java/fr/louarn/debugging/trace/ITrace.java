@@ -1,6 +1,6 @@
-package fr.louarn.debugging.debuggueur.trace;
+package fr.louarn.debugging.trace;
 
-import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitable;
+import fr.louarn.debugging.printer.IDebuggerVisitable;
 
 import java.util.Calendar;
 

@@ -1,7 +1,7 @@
-package fr.louarn.debugging.debuggueur.trace;
+package fr.louarn.debugging.trace;
 
-import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitable;
-import fr.louarn.debugging.debuggueur.printer.IDebuggerVisitor;
+import fr.louarn.debugging.printer.IDebuggerVisitable;
+import fr.louarn.debugging.printer.IDebuggerVisitor;
 
 import java.io.Serializable;
 import java.util.Objects;

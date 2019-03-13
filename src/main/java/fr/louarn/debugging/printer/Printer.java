@@ -1,10 +1,10 @@
-package fr.louarn.debugging.debuggueur.printer;
+package fr.louarn.debugging.printer;
 
-import fr.louarn.debugging.debuggueur.program.trace.IProgramTrace;
-import fr.louarn.debugging.debuggueur.trace.ITrace;
-import fr.louarn.debugging.debuggueur.trace.Level;
-import fr.louarn.debugging.debuggueur.trace.Value;
-import fr.louarn.debugging.debuggueur.utils.Constants;
+import fr.louarn.debugging.program.trace.IProgramTrace;
+import fr.louarn.debugging.trace.ITrace;
+import fr.louarn.debugging.trace.Level;
+import fr.louarn.debugging.trace.Value;
+import fr.louarn.debugging.utils.Constants;
 
 import java.io.PrintStream;
 import java.text.SimpleDateFormat;

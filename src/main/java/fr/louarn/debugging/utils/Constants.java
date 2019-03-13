@@ -1,4 +1,4 @@
-package fr.louarn.debugging.debuggueur.utils;
+package fr.louarn.debugging.utils;
 
 public class Constants {
 
