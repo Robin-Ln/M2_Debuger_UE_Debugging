@@ -67,6 +67,8 @@ public class Printer implements IDebuggerVisitor {
 
             this.out.println("]");
 
+
+
 //            StackTraceElement l = new Exception().getStackTrace()[0];
 //            System.out.println(l.getClassName() + "/" + l.getMethodName() + ":" + l.getLineNumber());
         }

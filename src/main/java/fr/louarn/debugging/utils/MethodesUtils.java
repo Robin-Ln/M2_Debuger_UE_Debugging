@@ -3,6 +3,9 @@ package fr.louarn.debugging.utils;
 import org.apache.log4j.Logger;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MethodesUtils {
 
@@ -86,4 +89,43 @@ public class MethodesUtils {
         }
         return null;
     }
+
+    public static Map<Integer,String> getFileLine(File file, Integer min, Integer max) {
+        Map<Integer,String> resultat = new HashMap<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            Integer index = 0;
+            while ((line = br.readLine()) != null) {
+               if(index >= min && index <= max){
+                   resultat.put(index, line);
+               }
+               index ++;
+            }
+        } catch (IOException e) {
+            MethodesUtils.logger.error("fail MethodesUtils.getFileLine()", e);
+        }
+        return resultat;
+    }
+
+    public static String listeRepertoire(File repertoire, String fichier_chercher) {
+        String res = null;
+        if (repertoire.isDirectory()) {
+            File[] list = repertoire.listFiles();
+            for (int i = 0; i < list.length; i++) {
+                // Appel récursif sur les sous-répertoires
+                File file = list[i];
+                if (file.isDirectory()) {
+                    res = listeRepertoire(file, fichier_chercher);
+                } else {
+                    if (fichier_chercher.equals(file.getName())) {
+                        res = file.getAbsolutePath();
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+
 }
