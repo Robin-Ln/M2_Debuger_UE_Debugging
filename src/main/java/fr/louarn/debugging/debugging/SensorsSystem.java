@@ -38,7 +38,7 @@ public class SensorsSystem {
     }
 
     private void readSensorIn(Sensor s, Map<String, Float> results) {
-        SensorsSystem.PROGRAM_TRACE.addTrace(Level.FAIBLE,"readSensorIn");
+        SensorsSystem.PROGRAM_TRACE.addTrace(Level.FAIBLE, new Exception().getStackTrace()[0]);
         s.read();
         results.put(s.getName(), s.getValue());
     }

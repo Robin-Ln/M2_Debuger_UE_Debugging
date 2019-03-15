@@ -25,9 +25,9 @@ class PrinterTest {
     @BeforeEach
     void init() {
         this.programTrace = ProgramTrace.getInstance();
-        this.programTrace.addTrace(Level.FAIBLE, "test", 1);
-        this.programTrace.addTrace(Level.MOYEN, "test", "test");
-        this.programTrace.addTrace(Level.CRITIQUE, "test", 1.3f);
+        this.programTrace.addTrace(Level.FAIBLE, "test", 1,new Exception().getStackTrace()[0]);
+        this.programTrace.addTrace(Level.MOYEN, "test", "test",new Exception().getStackTrace()[0]);
+        this.programTrace.addTrace(Level.CRITIQUE, "test", 1.3f,new Exception().getStackTrace()[0]);
 
         Properties properties = PropertiesUtils.loadProperties(Constants.PATH_PROPERTIES);
 

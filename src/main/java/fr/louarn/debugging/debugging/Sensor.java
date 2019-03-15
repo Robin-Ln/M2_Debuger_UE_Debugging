@@ -24,8 +24,8 @@ public class Sensor {
     public void read() {
         setRawValue(getChannel().read());
         setValue(computeValue());
-        Sensor.PROGRAM_TRACE.addTrace(Level.MOYEN,"read(), rawValue : ",this.rawValue);
-        Sensor.PROGRAM_TRACE.addTrace(Level.MOYEN,"read(), value : ",this.value);
+        Sensor.PROGRAM_TRACE.addTrace(Level.MOYEN,"rawValue",this.rawValue,new Exception().getStackTrace()[0]);
+        Sensor.PROGRAM_TRACE.addTrace(Level.MOYEN,"value",this.value,new Exception().getStackTrace()[0]);
     }
 
     public float computeValue() {

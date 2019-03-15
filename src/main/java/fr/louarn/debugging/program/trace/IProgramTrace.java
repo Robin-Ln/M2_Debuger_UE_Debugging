@@ -15,13 +15,13 @@ public interface IProgramTrace extends IDebuggerVisitable, Iterable<Trace>, Seri
 
     Boolean hasPrevious();
 
-    void addTrace(Level level, String origine, String value);
+    void addTrace(Level level, String name, String value, StackTraceElement l);
 
-    void addTrace(Level level, String origine, Integer value);
+    void addTrace(Level level, String name, Integer value, StackTraceElement l);
 
-    void addTrace(Level level, String origine, Float value);
+    void addTrace(Level level, String name, Float value, StackTraceElement l);
 
-    void addTrace(Level level, String origine);
+    void addTrace(Level level, StackTraceElement l);
 
     int size();
 

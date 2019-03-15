@@ -15,9 +15,12 @@ public class Trace implements ITrace {
 
     private Level level;
 
-    private String origine;
+
+    private String name;
 
     private Value value;
+
+    private StackTraceElement stackTraceElement;
 
     /**
      * Constructeurs
@@ -26,17 +29,19 @@ public class Trace implements ITrace {
         super();
     }
 
-    public Trace(Calendar calendar, Level level, String origine, Value value) {
+    public Trace(Calendar calendar, Level level, String name, Value value, StackTraceElement stackTraceElement) {
         this.calendar = calendar;
         this.level = level;
-        this.origine = origine;
+        this.name = name;
         this.value = value;
+        this.stackTraceElement = stackTraceElement;
     }
 
-    public Trace(Calendar calendar, Level level, String origine) {
+    public Trace(Calendar calendar, Level level, StackTraceElement stackTraceElement) {
         this.calendar = calendar;
         this.level = level;
-        this.origine = origine;
+        this.stackTraceElement = stackTraceElement;
+
     }
 
     /**
@@ -81,16 +86,6 @@ public class Trace implements ITrace {
     }
 
     @Override
-    public String getOrigine() {
-        return origine;
-    }
-
-    @Override
-    public void setOrigine(String origine) {
-        this.origine = origine;
-    }
-
-    @Override
     public Value getValue() {
         return value;
     }
@@ -98,5 +93,21 @@ public class Trace implements ITrace {
     @Override
     public void setValue(Value value) {
         this.value = value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public StackTraceElement getStackTraceElement() {
+        return stackTraceElement;
+    }
+
+    public void setStackTraceElement(StackTraceElement stackTraceElement) {
+        this.stackTraceElement = stackTraceElement;
     }
 }

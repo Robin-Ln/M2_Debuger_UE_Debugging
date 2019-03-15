@@ -21,11 +21,16 @@ public interface ITrace extends IDebuggerVisitable, Serializable {
 
     void setLevel(Level level);
 
-    String getOrigine();
-
-    void setOrigine(String origine);
 
     Value getValue();
 
     void setValue(Value value);
+
+    String getName();
+
+    void setName(String name);
+
+    StackTraceElement getStackTraceElement();
+
+    void setStackTraceElement(StackTraceElement stackTraceElement);
 }

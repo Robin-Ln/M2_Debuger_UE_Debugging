@@ -38,6 +38,16 @@ public class Printer implements IDebuggerVisitor {
     @Override
     public void visite(ITrace trace) {
         if (this.level.getValue() <= trace.getLevel().getValue()) {
+
+            StackTraceElement l = trace.getStackTraceElement();
+            this.out.print(l.getClassName()
+                    + "/"
+                    + l.getMethodName()
+                    + ":"
+                    + l.getLineNumber()
+                    + " ---> "
+            );
+
             this.out.print("[ date: ");
 
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_PATTERN);
@@ -46,8 +56,9 @@ public class Printer implements IDebuggerVisitor {
             this.out.print(", level: ");
             trace.getLevel().accept(this);
 
-            this.out.print(", origine: ");
-            this.out.print(trace.getOrigine());
+            if (trace.getName() != null) {
+                this.out.print(", name : "+trace.getName());
+            }
 
             if (trace.getValue() != null) {
                 this.out.print(", value: ");
@@ -56,6 +67,8 @@ public class Printer implements IDebuggerVisitor {
 
             this.out.println("]");
 
+//            StackTraceElement l = new Exception().getStackTrace()[0];
+//            System.out.println(l.getClassName() + "/" + l.getMethodName() + ":" + l.getLineNumber());
         }
     }
 

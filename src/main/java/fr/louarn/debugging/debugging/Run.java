@@ -1,11 +1,18 @@
 package fr.louarn.debugging.debugging;
 
+import fr.louarn.debugging.program.trace.IProgramTrace;
+import fr.louarn.debugging.program.trace.ProgramTrace;
+import fr.louarn.debugging.utils.Constants;
+import fr.louarn.debugging.utils.MethodesUtils;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
 
 
 public class Run {
+
+    public static final IProgramTrace PROGRAM_TRACE = ProgramTrace.getInstance();
+
 
     /**
      * Attribute
@@ -21,6 +28,8 @@ public class Run {
             logger.trace("===============================");
             results.forEach((sensorName, sensorValue) -> logger.trace(sensorName + ": " + sensorValue));
         }
+
+        MethodesUtils.writeObject(Run.PROGRAM_TRACE, Constants.PATH_FILE_SAVE);
 
     }
 
